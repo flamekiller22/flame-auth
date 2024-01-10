@@ -1,7 +1,7 @@
 # Flame Auth
 This is a repository for Next Auth v5 - Advanced Guide (2024)
 
-Pretty much a clone of [Antonio Erdeljac's project](https://github.com/AntonioErdeljac/next-auth-v5-advanced-guide/tree/edcc2f97bd7fdd41736cb23e92e8d4eb07db0c1d) but using TOTP rather than OTP via mail (because sending emails for OTP just seems excessive to me) and fixed the issue while changing email with new verification in Settings page.
+Pretty much a follow along of [Antonio Erdeljac's project](https://github.com/AntonioErdeljac/next-auth-v5-advanced-guide/tree/edcc2f97bd7fdd41736cb23e92e8d4eb07db0c1d) using the [video tutorial](https://youtu.be/1MTyCvS05V4) but using TOTP rather than OTP via mail (because sending emails for OTP just seems excessive to me) and fixed the issue while changing email with new verification in Settings page.
 
 Key Features:
 - 🔐 Next-auth v5 (Auth.js)
