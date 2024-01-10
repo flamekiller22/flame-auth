@@ -81,7 +81,7 @@ pnpm run dev
 
 ## Available commands
 
-Running commands with npm `npm run [command]`
+Running commands with npm `pnpm run [command]`
 
 | command         | description                              |
 | :-------------- | :--------------------------------------- |
