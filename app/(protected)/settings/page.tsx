@@ -142,7 +142,7 @@ const SettingsPage = () => {
                             placeholder="******"
                             disabled={isPending}
                             type="password"
-                            autoComplete="off"
+                            autoComplete="new-password"
                           />
                         </FormControl>
                         <FormMessage />
