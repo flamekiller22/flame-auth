@@ -26,7 +26,7 @@ ENV NEXT_TELEMETRY_DISABLED 1
 # RUN yarn build
 
 # If using npm comment out above and use below instead
-RUN prisma generate
+RUN npx prisma generate
 RUN npm run build
 
 # Production image, copy all the files and run next
