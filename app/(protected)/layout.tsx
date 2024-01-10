@@ -1,7 +1,12 @@
 import { Navbar } from "./_components/navbar";
+import type { Metadata } from 'next';
 
 interface ProtectedLayoutProps {
   children: React.ReactNode
+}
+
+export const metadata: Metadata = {
+  title: 'Dashboard - Flame Auth',
 }
 
 const ProtectedLayout = ({ children }: ProtectedLayoutProps) => {

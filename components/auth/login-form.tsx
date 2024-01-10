@@ -26,7 +26,7 @@ import { login } from "@/actions/login";
 export const LoginForm = () => {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl");
-  const urlError = searchParams.get("error") === "OAuthAccountNotLinked" ? "Email already in use with different provider" : "";
+  const urlError = searchParams.get("error") ? (searchParams.get("error") === "OAuthAccountNotLinked" ? "Email already in use with different provider" : "Something went wrong") : "";
 
   const [showTwoFactor, setShowTwoFactor] = useState(false);
   const [error, setError] = useState<string | undefined>("");
