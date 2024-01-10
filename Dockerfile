@@ -7,8 +7,10 @@ WORKDIR /app
 # RUN yarn install --frozen-lockfile
 
 # If using npm with a `package-lock.json` comment out above and use below instead
-COPY package.json package-lock.json ./ 
-RUN npm ci
+# COPY package.json package-lock.json ./ 
+# RUN npm ci
+COPY package.json ./
+RUN npm i
 
 # Rebuild the source code only when needed
 FROM node:21-alpine AS builder
