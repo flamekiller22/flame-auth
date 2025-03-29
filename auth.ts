@@ -22,9 +22,9 @@ export const {
     async linkAccount({ user }) {
       await db.user.update({
         where: { id: user.id },
-        data: { emailVerified: new Date() }
-      })
-    }
+        data: { emailVerified: new Date() },
+      });
+    },
   },
   callbacks: {
     async signIn({ user, account }) {
@@ -36,14 +36,18 @@ export const {
 
       // TODO: Add 2FA check
       if (existingUser.isTwoFactorEnabled) {
-        const twoFactorConfirmation = await getTwoFactorConfirmationByUserId(existingUser.id);
+        const twoFactorConfirmation = await getTwoFactorConfirmationByUserId(
+          existingUser.id
+        );
 
         if (!twoFactorConfirmation) {
-          throw new Error("Unable to verify 2FA check", { cause: { reason: "2FA CHECK FAILED" } });
+          throw new Error("Unable to verify 2FA check", {
+            cause: { reason: "2FA CHECK FAILED" },
+          });
         }
 
         await db.twoFactorConfirmation.delete({
-          where: { id: twoFactorConfirmation.id }
+          where: { id: twoFactorConfirmation.id },
         });
       }
 
@@ -51,7 +55,7 @@ export const {
     },
     async session({ token, session }) {
       if (token.sub && session.user) {
-        session.user.id = token.sub
+        session.user.id = token.sub;
       }
 
       if (token.role && session.user) {
@@ -71,11 +75,11 @@ export const {
       return session;
     },
     async jwt({ token }) {
-      if (!token.sub) return token
+      if (!token.sub) return token;
 
       const existingUser = await getUserById(token.sub);
 
-      if (!existingUser) return token
+      if (!existingUser) return token;
 
       const existingAccount = await getAccountByUserId(existingUser.id);
 
@@ -86,9 +90,9 @@ export const {
       token.isTwoFactorEnabled = existingUser.isTwoFactorEnabled;
 
       return token;
-    }
+    },
   },
   adapter: PrismaAdapter(db),
   session: { strategy: "jwt" },
   ...authConfig,
-})
+});
