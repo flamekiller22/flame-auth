@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
-import { PrismaAdapter } from "@next-auth/prisma-adapter";
+import { PrismaAdapter } from "@auth/prisma-adapter";
+import type { Adapter } from "@auth/core/adapters";
 
 import authConfig from "@/auth.config";
 import { db } from "@/lib/db";
@@ -92,7 +93,7 @@ export const {
       return token;
     },
   },
-  adapter: PrismaAdapter(db),
+  adapter: PrismaAdapter(db) as Adapter,
   session: { strategy: "jwt" },
   ...authConfig,
 });
